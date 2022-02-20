@@ -5,9 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   getAccessTokenStorage,
   getThemeStorage,
-  // putAccessTokenStorage,
+  putAccessTokenStorage,
   putThemeStorage,
 } from "./services/storage";
+import { apiGetUserInfo, setAccessTokenHeader } from "./services/api";
 
 // context
 import StateContext from "./contexts/StateContext";
@@ -16,6 +17,7 @@ import DispatchContext from "./contexts/DispatchContext";
 // components
 import Loading from "./components/Loading";
 import PrivateRoute from "./components/PrivateRoute";
+import Modal from "./components/Modal";
 
 // pages
 import NotFoundPage from "./pages/NotFoundPage";
@@ -29,6 +31,7 @@ function App() {
     isLoggedIn: Boolean(getAccessTokenStorage()),
     user: null,
     theme: getThemeStorage(),
+    message: null,
   };
 
   function appReducer(state, action) {
@@ -56,6 +59,16 @@ function App() {
           ...state,
           theme: action.value,
         };
+      case "setMessage":
+        return {
+          ...state,
+          message: action.value,
+        };
+      case "clearMessage":
+        return {
+          ...state,
+          message: null,
+        };
       default:
         return {
           ...state,
@@ -71,10 +84,28 @@ function App() {
     }
   }, [state.theme]);
 
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const { data } = await apiGetUserInfo();
+        dispatch({ type: "setUser", value: data });
+      } catch (e) {
+        dispatch({ type: "logout" });
+      }
+    }
+
+    if (state.isLoggedIn && state.accessToken) {
+      putAccessTokenStorage(state.accessToken);
+      setAccessTokenHeader(state.accessToken);
+      getUser();
+    }
+  }, [state.isLoggedIn, state.accessToken]);
+
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
         <Suspense fallback={<Loading />}>
+          <Modal />
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<HomePage />} />
