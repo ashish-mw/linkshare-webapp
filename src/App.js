@@ -20,6 +20,7 @@ function App() {
     accessToken: null,
     isLoggedIn: false,
     user: null,
+    theme: "light",
   };
 
   function appReducer(state, action) {
