@@ -66,6 +66,10 @@ form > input[type=submit] {
   margin: 0 auto;
 }
 
+.m-t-10 {
+  margin-top: 10px;
+}
+
 .m-t-20 {
   margin-top: 20px;
 }
