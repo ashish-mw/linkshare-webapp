@@ -45,7 +45,7 @@ const Nav = () => {
         )}
       </ul>
 
-      <div class="text-right m-t-10">
+      <div className="text-right m-t-10">
         <button className="link" onClick={handleThemeChange}>
           {appState.theme === "dark" ? "☀️" : "🌚"}
         </button>
