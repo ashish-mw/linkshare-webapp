@@ -1,5 +1,13 @@
-import { Suspense, lazy, useReducer } from "react";
+import { Suspense, lazy, useReducer, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// services
+import {
+  getAccessTokenStorage,
+  getThemeStorage,
+  // putAccessTokenStorage,
+  putThemeStorage,
+} from "./services/storage";
 
 // context
 import StateContext from "./contexts/StateContext";
@@ -17,10 +25,10 @@ const MyLinksPage = lazy(() => import("./pages/MyLinksPage"));
 
 function App() {
   const appState = {
-    accessToken: null,
-    isLoggedIn: false,
+    accessToken: getAccessTokenStorage(),
+    isLoggedIn: Boolean(getAccessTokenStorage()),
     user: null,
-    theme: "light",
+    theme: getThemeStorage(),
   };
 
   function appReducer(state, action) {
@@ -56,6 +64,12 @@ function App() {
   }
 
   const [state, dispatch] = useReducer(appReducer, appState);
+
+  useEffect(() => {
+    if (state.theme) {
+      putThemeStorage(state.theme);
+    }
+  }, [state.theme]);
 
   return (
     <StateContext.Provider value={state}>
