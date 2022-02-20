@@ -13,6 +13,14 @@ const Nav = () => {
     return;
   }
 
+  function handleThemeChange() {
+    if (appState.theme === "dark") {
+      appDispatch({ type: "setTheme", value: "light" });
+    } else {
+      appDispatch({ type: "setTheme", value: "dark" });
+    }
+  }
+
   return (
     <nav className="container">
       <ul>
@@ -36,6 +44,12 @@ const Nav = () => {
           </li>
         )}
       </ul>
+
+      <div class="text-right m-t-10">
+        <button class="link" onClick={handleThemeChange}>
+          {appState.theme === "dark" ? "☀️" : "🌚"}
+        </button>
+      </div>
     </nav>
   );
 };
