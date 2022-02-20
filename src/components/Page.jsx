@@ -9,7 +9,11 @@ const Page = (props) => {
     window.scrollTo(0, 0);
   }, [props.title]);
 
-  return <Container>{props.children}</Container>;
+  return (
+    <Container>
+      <div className="container m-t-20">{props.children}</div>
+    </Container>
+  );
 };
 
 export default Page;
