@@ -1,5 +1,7 @@
+import Page from "../components/Page";
+
 const AuthPage = () => {
-  return <h1>Auth</h1>;
+  return <Page title="Authenticate">Auth</Page>;
 };
 
 export default AuthPage;

@@ -1,5 +1,7 @@
+import Page from "../components/Page";
+
 const NotFoundPage = () => {
-  return <h1>404</h1>;
+  return <Page title="Page not found">404</Page>;
 };
 
 export default NotFoundPage;

@@ -1,5 +1,7 @@
+import Page from "../components/Page";
+
 const MyLinksPage = () => {
-  return <h1>My Links</h1>;
+  return <Page title="My Links">My Links</Page>;
 };
 
 export default MyLinksPage;

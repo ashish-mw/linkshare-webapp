@@ -1,5 +1,13 @@
-body {
+* {
+  padding: 0;
   margin: 0;
+  font-size: 15pt;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -10,4 +18,151 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h2 {
+  margin-bottom: 5px;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+nav > ul > li {
+  list-style: none;
+}
+
+a {
+  color: black;
+}
+
+form > label {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+form > input {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+form > input[type=submit] {
+  cursor: pointer;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.link {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.card {
+  border: 1px solid grey;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+.small {
+  font-size: 12pt;
+}
+
+.muted {
+  color: grey;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.separator {
+  height: 40px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 101; /* Sit on top, hiher value than nav */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid grey;
+  max-width: 450px;
+}
+
+.error .modal-content p {
+  color: palevioletred
+}
+
+.success .modal-content p {
+  color: teal
+}
+
+/* dark theme overrides */
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.dark a {
+  color: white;
+}
+
+.dark .link {
+  color: white;
+}
+
+.dark .modal-content {
+  background-color: black;
+  color: white;
 }
