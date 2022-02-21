@@ -41,7 +41,7 @@ const MyLinksPage = () => {
 
       <h2>My links</h2>
       {myShares.map((s) => (
-        <LinkCard share={s} />
+        <LinkCard share={s} key={s.id} />
       ))}
     </Page>
   );
