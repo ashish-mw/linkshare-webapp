@@ -27,3 +27,7 @@ export const apiCreateSession = (payload, cancelToken) => {
 export const apiGetUserInfo = (cancelToken) => {
   return http.get("/users", { cancelToken: cancelToken });
 };
+
+export const apiGetUserShares = (cancelToken) => {
+  return http.get("/shares", { cancelToken: cancelToken });
+};
