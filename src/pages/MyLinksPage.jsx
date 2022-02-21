@@ -34,9 +34,13 @@ const MyLinksPage = () => {
     return () => request.cancel();
   }, [refresh, appDispatch]);
 
+  function handleShareAddSuccess() {
+    setRefresh((prev) => prev + 1);
+  }
+
   return (
     <Page title="My Links">
-      <AddNewShareForm />
+      <AddNewShareForm onSuccess={handleShareAddSuccess} />
       <div className="separator"></div>
 
       <h2>My links</h2>
