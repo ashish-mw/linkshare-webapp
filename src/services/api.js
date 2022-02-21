@@ -35,3 +35,7 @@ export const apiGetUserShares = (cancelToken) => {
 export const apiCreateLinkShare = (payload, cancelToken) => {
   return http.post("/shares", payload, { cancelToken: cancelToken });
 };
+
+export const apiGetSharesPublic = (params, cancelToken) => {
+  return http.get("/shares/all", { params, cancelToken });
+};

@@ -56,9 +56,10 @@ const AddNewShareForm = ({ onSuccess }) => {
           link: state.link,
         };
         await apiCreateLinkShare(payload, request.token);
-        onSuccess();
         dispatch({ type: "reset" });
+        onSuccess();
       } catch (e) {
+        console.log(e);
         appDispatch({
           type: "setMessage",
           value: { text: getAxiosError(e), type: "error" },

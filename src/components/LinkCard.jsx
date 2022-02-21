@@ -18,7 +18,7 @@ const LinkCard = (props) => {
         </span>
       </div>
 
-      {appState.user.id === props.share.user && (
+      {appState.user && appState.user.id === props.share.user && (
         <div className="text-right">
           <span className="small pointer">✏️ Edit</span>
           <span className="small pointer">⛔️ Delete</span>
