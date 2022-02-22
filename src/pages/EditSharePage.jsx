@@ -68,7 +68,7 @@ const EditSharePage = () => {
   }
 
   return (
-    <Page title="My Links">
+    <Page title="Edit link">
       {shareInfo && (
         <>
           <div className="m-b-20">
