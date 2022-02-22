@@ -38,6 +38,10 @@ const MyLinksPage = () => {
     setRefresh((prev) => prev + 1);
   }
 
+  function handleShareDelSuccess() {
+    setRefresh((prev) => prev + 1);
+  }
+
   return (
     <Page title="My Links">
       <AddNewShareForm onSuccess={handleShareAddSuccess} />
@@ -45,7 +49,7 @@ const MyLinksPage = () => {
 
       <h2>My links</h2>
       {myShares.map((s) => (
-        <LinkCard share={s} key={s.id} />
+        <LinkCard share={s} key={s.id} onDelSuccess={handleShareDelSuccess} />
       ))}
     </Page>
   );

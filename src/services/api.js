@@ -39,3 +39,17 @@ export const apiCreateLinkShare = (payload, cancelToken) => {
 export const apiGetSharesPublic = (params, cancelToken) => {
   return http.get("/shares/all", { params, cancelToken });
 };
+
+export const apiUpdateLinkShare = (payload, cancelToken) => {
+  return http.put(
+    `/shares/${payload.id}`,
+    {
+      title: payload.title,
+    },
+    { cancelToken: cancelToken }
+  );
+};
+
+export const apiDeleteLinkShare = (payload, cancelToken) => {
+  return http.delete(`/shares/${payload.id}`, { cancelToken: cancelToken });
+};

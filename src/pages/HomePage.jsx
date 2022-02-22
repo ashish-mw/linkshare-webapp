@@ -12,6 +12,7 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [maxPage, setMaxPage] = useState(1);
+  const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
     const request = axios.CancelToken.source();
@@ -19,7 +20,11 @@ const HomePage = () => {
     async function getShares() {
       try {
         const { data } = await apiGetSharesPublic({ page }, request.token);
-        setAllShares((prev) => [...prev, ...data.shares]);
+        if (page !== 1) {
+          setAllShares((prev) => [...prev, ...data.shares]);
+        } else {
+          setAllShares(data.shares);
+        }
         setMaxPage(data.pages);
       } catch (e) {
         appDispatch({
@@ -31,22 +36,26 @@ const HomePage = () => {
       }
     }
 
-    if (page) {
+    if (page || refresh) {
       setLoading(true);
       getShares();
     }
 
     return () => request.cancel();
-  }, [page, appDispatch]);
+  }, [page, appDispatch, refresh]);
 
   function nextPage() {
     setPage((prev) => prev + 1);
   }
 
+  function refreshList() {
+    setRefresh((prev) => prev + 1);
+  }
+
   return (
     <Page title="Home">
       {allShares.map((s) => (
-        <LinkCard share={s} key={s.id} />
+        <LinkCard share={s} key={s.id} onDelSuccess={() => refreshList()} />
       ))}
 
       {loading && (
