@@ -42,7 +42,7 @@ export const apiGetSharesPublic = (params, cancelToken) => {
 
 export const apiUpdateLinkShare = (payload, cancelToken) => {
   return http.put(
-    `/shares/${payload.id}`,
+    `/shares/${payload.shareId}`,
     {
       title: payload.title,
     },
@@ -52,4 +52,8 @@ export const apiUpdateLinkShare = (payload, cancelToken) => {
 
 export const apiDeleteLinkShare = (payload, cancelToken) => {
   return http.delete(`/shares/${payload.id}`, { cancelToken: cancelToken });
+};
+
+export const apiGetLinkShareInfo = (payload, cancelToken) => {
+  return http.get(`/shares/${payload.shareId}`, { cancelToken: cancelToken });
 };

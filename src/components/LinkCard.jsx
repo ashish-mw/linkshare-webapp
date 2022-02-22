@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { getAxiosError } from "../services/utils";
 import { apiDeleteLinkShare } from "../services/api";
@@ -54,7 +55,12 @@ const LinkCard = (props) => {
 
       {appState.user && appState.user.id === props.share.user && (
         <div className="text-right">
-          <span className="small pointer">✏️ Edit</span>
+          <Link
+            className="small no-underline"
+            to={`/my-links/edit/${props.share.id}`}
+          >
+            ✏️ Edit
+          </Link>
           <span
             className="small pointer"
             onClick={() => setDel(props.share.id)}

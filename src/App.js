@@ -24,6 +24,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const AuthPage = lazy(() => import("./pages/AuthPage"));
 const MyLinksPage = lazy(() => import("./pages/MyLinksPage"));
+const EditSharePage = lazy(() => import("./pages/EditSharePage"));
 
 function App() {
   const appState = {
@@ -113,6 +114,10 @@ function App() {
               <Route
                 path="/my-links"
                 element={<PrivateRoute outlet={<MyLinksPage />} />}
+              />
+              <Route
+                path="/my-links/edit/:shareId"
+                element={<PrivateRoute outlet={<EditSharePage />} />}
               />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
