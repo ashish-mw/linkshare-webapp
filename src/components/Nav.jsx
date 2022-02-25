@@ -37,7 +37,7 @@ const Nav = () => {
                   <Link to="/my-links" className="login">@{appState.user.username}</Link>
                 </li>
                 <li>
-                  <button className="link" onClick={handleLogout} className="login">
+                  <button className="link login" onClick={handleLogout}>
                     Logout
                   </button>
                 </li>
@@ -50,10 +50,7 @@ const Nav = () => {
           </ul>
 
           <div className="text-right m-t-10">
-            <button className="link" onClick={handleThemeChange}>
-              {appState.theme === "dark" ? "☀️" : "🌚"}
-            </button>
-            <CustomToggle status="checked"/>
+            <CustomToggle onChange={handleThemeChange} checked={appState.theme === "dark"}/>
           </div>
         </div>
       </div>

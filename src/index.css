@@ -66,7 +66,7 @@ a {
 .content-container {
   margin: 0 auto;
   padding: 50px 0px;
-  width: 90%;
+  width: 80%;
   max-width: 960px;
 }
 .form-container{
@@ -195,7 +195,7 @@ a {
 }
 /* dark theme overrides */
 .dark {
-  background-color: #0c0c0c;
+  background-color: #303030;
   color: white;
 }
 
@@ -321,4 +321,12 @@ a {
 }
 .card-inline-btn svg{
   margin-right: 10px;
+}
+.skin-wrap{
+  display: flex;
+  padding-top: 30px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
 }
