@@ -48,6 +48,7 @@ const MyLinksPage = () => {
       <div className="separator"></div>
 
       <h2>My links</h2>
+      <div className="spacer-20"></div>
       {myShares.map((s) => (
         <LinkCard share={s} key={s.id} onDelSuccess={handleShareDelSuccess} />
       ))}

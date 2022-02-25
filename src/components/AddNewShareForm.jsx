@@ -96,7 +96,7 @@ const AddNewShareForm = ({ onSuccess }) => {
   return (
     <>
       <h2>Add a new link</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-group">
         <label htmlFor="title">Title for your share</label>
         <input
           type="text"
@@ -116,7 +116,7 @@ const AddNewShareForm = ({ onSuccess }) => {
           onChange={(e) => dispatch({ type: "setLink", value: e.target.value })}
           value={state.link}
         />
-
+        <div className="spacer-10"></div>
         <input type="submit" value="Submit link" disabled={!isFormValid} />
       </form>
     </>

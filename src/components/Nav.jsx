@@ -34,17 +34,17 @@ const Nav = () => {
             {appState.user ? (
               <>
                 <li>
-                  <Link to="/my-links">@{appState.user.username}</Link>
+                  <Link to="/my-links" className="login">@{appState.user.username}</Link>
                 </li>
                 <li>
-                  <button className="link" onClick={handleLogout}>
+                  <button className="link" onClick={handleLogout} className="login">
                     Logout
                   </button>
                 </li>
               </>
             ) : (
               <li>
-                <Link to="/auth">Login</Link>
+                <Link to="/auth" className="login">Login</Link>
               </li>
             )}
           </ul>
