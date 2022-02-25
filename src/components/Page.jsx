@@ -11,7 +11,9 @@ const Page = (props) => {
 
   return (
     <Container>
-      <div className="container m-t-20">{props.children}</div>
+      <div className="bg-curved-radius">
+        <div className="content-container">{props.children}</div>
+      </div>
     </Container>
   );
 };

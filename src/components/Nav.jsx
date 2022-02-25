@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import './styles/Nav.css';
 
 import DispatchContext from "../contexts/DispatchContext";
 import StateContext from "../contexts/StateContext";
+import CustomToggle from "./CustomToggle";
 
 const Nav = () => {
   const appDispatch = useContext(DispatchContext);
@@ -22,35 +24,38 @@ const Nav = () => {
   }
 
   return (
-    <nav className="container">
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {appState.user ? (
-          <>
+    <div className="header-wrap">
+      <div className="header-top-blk">
+        <div className="header-container">
+          <ul>
             <li>
-              <Link to="/my-links">@{appState.user.username}</Link>
+              <Link to="/" className="logo">Link Share</Link>
             </li>
-            <li>
-              <button className="link" onClick={handleLogout}>
-                Logout
-              </button>
-            </li>
-          </>
-        ) : (
-          <li>
-            <Link to="/auth">Login</Link>
-          </li>
-        )}
-      </ul>
+            {appState.user ? (
+              <>
+                <li>
+                  <Link to="/my-links" className="login">@{appState.user.username}</Link>
+                </li>
+                <li>
+                  <button className="link login" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link to="/auth" className="login">Login</Link>
+              </li>
+            )}
+          </ul>
 
-      <div className="text-right m-t-10">
-        <button className="link" onClick={handleThemeChange}>
-          {appState.theme === "dark" ? "☀️" : "🌚"}
-        </button>
+          <div className="text-right m-t-10">
+            <CustomToggle onChange={handleThemeChange} checked={appState.theme === "dark"}/>
+          </div>
+        </div>
       </div>
-    </nav>
+      <div className="bg-pattern"></div>
+    </div>
   );
 };
 

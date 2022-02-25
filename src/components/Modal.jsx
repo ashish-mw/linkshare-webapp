@@ -12,7 +12,7 @@ const Modal = () => {
         <div className="modal-content">
           <p>{appState.message.text}</p>
           <div className="m-t-20 text-center">
-            <button onClick={() => appDispatch({ type: "clearMessage" })}>
+            <button className="btn" onClick={() => appDispatch({ type: "clearMessage" })}>
               Close
             </button>
           </div>
