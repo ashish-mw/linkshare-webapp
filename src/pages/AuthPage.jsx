@@ -100,43 +100,44 @@ const AuthPage = () => {
     <Navigate to="/my-links" />
   ) : (
     <Page title="Authenticate">
-      <h2>{page === "signup" ? "Signup" : "Login"}</h2>
+      <div className="form-container">
+        <h2>{page === "signup" ? "Signup" : "Login"}</h2>
+        <form onSubmit={handleSubmit} className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="akts"
+            value={username}
+            onChange={(e) => {
+              setSubmitCount(0);
+              setUsername(e.target.value);
+            }}
+          />
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          placeholder="akts"
-          value={username}
-          onChange={(e) => {
-            setSubmitCount(0);
-            setUsername(e.target.value);
-          }}
-        />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Your secret password please"
+            value={password}
+            onChange={(e) => {
+              setSubmitCount(0);
+              setPassword(e.target.value);
+            }}
+          />
+          <div className="spacer-10"></div>
+          <input
+            type="submit"
+            value={page === "signup" ? "Create account" : "Login"}
+            disabled={!isFormValid}
+          />
+        </form>
 
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Your secret password please"
-          value={password}
-          onChange={(e) => {
-            setSubmitCount(0);
-            setPassword(e.target.value);
-          }}
-        />
-
-        <input
-          type="submit"
-          value={page === "signup" ? "Create account" : "Login"}
-          disabled={!isFormValid}
-        />
-      </form>
-
-      <button className="small link" onClick={handlePageSwitch}>
-        Go to {page === "signup" ? "Login" : "Signup"}
-      </button>
+        <button className="small link" onClick={handlePageSwitch}>
+          Go to {page === "signup" ? "Login" : "Signup"}
+        </button>
+      </div>
     </Page>
   );
 };
