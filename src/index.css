@@ -113,7 +113,13 @@ a {
   color: #5a189a;
 }
 .dark .card {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.dark .card:hover {
+  background-color: rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
 }
 .text-right {
   text-align: right;
@@ -289,4 +295,30 @@ a {
   background-image: linear-gradient(to right,#bbbbbb, #bbbbbb);
   cursor: no-drop;
   box-shadow: none;
+}
+.card-inline-btn{
+  display: inline-block;
+  margin-left: 15px;
+  padding: 8px 15px 8px 8px;
+  color: #fff;
+  background-color: #7b2cbf;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50px;
+  transition: all 500ms ease-in-out;
+}
+.card-inline-btn:hover{
+  background-color: #c77dff;
+}
+
+.card-inline-btn a, .card-inline-btn span{
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+.card-inline-btn a:hover{
+  color: #fff;
+}
+.card-inline-btn svg{
+  margin-right: 10px;
 }

@@ -14,7 +14,7 @@
     width: 90%;
 }
 .header-top-blk{
-    border: 1px solid rgba(255,255,255,0.3);
+    /* border: 1px solid rgba(255,255,255,0.3); */
 }
 @keyframes changewidth {
     from {
