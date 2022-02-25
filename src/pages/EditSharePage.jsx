@@ -77,7 +77,7 @@ const EditSharePage = () => {
             </button>
           </div>
           <h2>Editing {shareInfo.title}</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="form-group">
             <label htmlFor="title">Title for your share</label>
             <input
               type="text"
